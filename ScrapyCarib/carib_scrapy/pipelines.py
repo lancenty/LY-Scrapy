@@ -6,7 +6,8 @@
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 import json
 import codecs
-
+from scrapy.pipelines.images import ImagesPipeline
+from scrapy.pipelines.files import FilesPipeline
 
 class RatingPipeline(object):
     rating_map = {
@@ -16,7 +17,6 @@ class RatingPipeline(object):
         '★★★★':  4,
         '★★★★★': 5,
     }
-
 
     def process_item(self, item, spider):
         rating = item.get('rating')
@@ -37,3 +37,9 @@ class JsonWithEncodingPipeline(object):
 
     def spider_closed(self, spider):
         self.file.close()
+
+
+class MyFilesPipeline(FilesPipeline):
+    
+    def file_path(self, request, response=None, info=None):
+        pass

@@ -13,7 +13,8 @@ BOT_NAME = 'carib_scrapy'
 
 SPIDER_MODULES = ['carib_scrapy.spiders']
 NEWSPIDER_MODULE = 'carib_scrapy.spiders'
-
+FILES_STORE = 'src'
+IMAGES_STORE = 'src'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'carib_scrapy (+http://www.yourdomain.com)'
@@ -65,6 +66,8 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
+    'scrapy.pipelines.images.ImagesPipeline': 1,
+    'scrapy.pipelines.files.FilesPipeline': 2,
     'carib_scrapy.pipelines.RatingPipeline': 300,
     'carib_scrapy.pipelines.JsonWithEncodingPipeline': 350,
 }
