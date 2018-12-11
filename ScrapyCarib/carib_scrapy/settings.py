@@ -15,23 +15,24 @@ SPIDER_MODULES = ['carib_scrapy.spiders']
 NEWSPIDER_MODULE = 'carib_scrapy.spiders'
 FILES_STORE = 'src'
 IMAGES_STORE = 'src'
+MEDIA_ALLOW_REDIRECTS = True
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'carib_scrapy (+http://www.yourdomain.com)'
+USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-#CONCURRENT_REQUESTS = 32
+CONCURRENT_REQUESTS = 32
 
 # Configure a delay for requests for the same website (default: 0)
 # See https://doc.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-#DOWNLOAD_DELAY = 3
+DOWNLOAD_DELAY = 3
 # The download delay setting will honor only one of:
-#CONCURRENT_REQUESTS_PER_DOMAIN = 16
-#CONCURRENT_REQUESTS_PER_IP = 16
+CONCURRENT_REQUESTS_PER_DOMAIN = 16
+CONCURRENT_REQUESTS_PER_IP = 16
 
 # Disable cookies (enabled by default)
 #COOKIES_ENABLED = False
@@ -67,9 +68,9 @@ ROBOTSTXT_OBEY = True
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'scrapy.pipelines.images.ImagesPipeline': 1,
-    'scrapy.pipelines.files.FilesPipeline': 2,
-    'carib_scrapy.pipelines.RatingPipeline': 300,
-    'carib_scrapy.pipelines.JsonWithEncodingPipeline': 350,
+    #'scrapy.pipelines.files.FilesPipeline': 2,
+    #'carib_scrapy.pipelines.RatingPipeline': 300,
+    #'carib_scrapy.pipelines.JsonWithEncodingPipeline': 350,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
