@@ -41,5 +41,16 @@ class JsonWithEncodingPipeline(object):
 
 class MyFilesPipeline(FilesPipeline):
     
+
+    def get_media_requests(self, item, info):
+        """Returns the media requests to download"""
+        pass
+        
+    def file_path(self, request, response=None, info=None):
+        pass
+
+
+class MyImagesPipeline(ImagesPipeline):
+    
     def file_path(self, request, response=None, info=None):
         pass
