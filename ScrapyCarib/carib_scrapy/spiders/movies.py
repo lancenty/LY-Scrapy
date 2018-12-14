@@ -37,7 +37,7 @@ class MoviesSpider(scrapy.Spider):
         movie['tag'] = sel.xpath('//ul/li[span[@class="spec-title"]/text()="タグ"]/span[@class="spec-content"]/a/text()').extract()
         movie['movie_tag'] = sel.xpath('//div[@class="movie-tag"]/div/text()').extract()
         movie['rating'] = sel.css('span.rating::text').extract_first()
-        movie['image_urls'] = ["https://www.caribbeancom.com/moviepages/" + movie_id + "/images/l_l.jpg",]
-        movie['file_urls'] = ["https://smovie.caribbeancom.com/sample/movies/" + movie_id + "/480p.mp4",]
+        movie['image_urls'] = "https://www.caribbeancom.com/moviepages/" + movie_id + "/images/l_l.jpg"
+        movie['file_urls'] = "https://smovie.caribbeancom.com/sample/movies/" + movie_id + "/480p.mp4"
 
         yield movie
