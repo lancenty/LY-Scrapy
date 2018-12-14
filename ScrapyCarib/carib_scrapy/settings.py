@@ -70,8 +70,8 @@ ITEM_PIPELINES = {
     'carib_scrapy.pipelines.MyImagesPipeline': 1,
     #'scrapy.pipelines.images.MyImagesPipeline': 1,
     #'scrapy.pipelines.files.FilesPipeline': 2,
-    #'carib_scrapy.pipelines.RatingPipeline': 300,
-    #'carib_scrapy.pipelines.JsonWithEncodingPipeline': 350,
+    'carib_scrapy.pipelines.RatingPipeline': 300,
+    'carib_scrapy.pipelines.JsonWithEncodingPipeline': 350,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
