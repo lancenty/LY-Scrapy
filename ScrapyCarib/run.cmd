@@ -1,1 +1,1 @@
-scrapy crawl movies
+D:\home\python364x64\Scripts\scrapy.exe crawl movies
