@@ -67,7 +67,7 @@ CONCURRENT_REQUESTS_PER_IP = 16
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'scrapy.pipelines.images.ImagesPipeline': 1,
+    'scrapy.pipelines.images.MyImagesPipeline': 1,
     #'scrapy.pipelines.files.FilesPipeline': 2,
     #'carib_scrapy.pipelines.RatingPipeline': 300,
     #'carib_scrapy.pipelines.JsonWithEncodingPipeline': 350,
