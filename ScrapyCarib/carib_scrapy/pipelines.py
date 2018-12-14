@@ -44,7 +44,7 @@ class MyFilesPipeline(FilesPipeline):
     
 
     def get_media_requests(self, item, info):
-        file_url = item['file_url']
+        file_url = item['file_urls']
         actor = ' '.join(item['actor'])
         meta = {
                   'filename': '-'.join([item['site'], item['movie_id'], item['name'], actor,]),
@@ -66,7 +66,7 @@ class MyImagesPipeline(ImagesPipeline):
 
 
     def get_media_requests(self, item, info):
-        image_url = item['image_url']
+        image_url = item['image_urls']
         actor = ' '.join(item['actor'])
         meta = {
                   'filename': '-'.join([item['site'], item['movie_id'], item['name'], actor,]),
