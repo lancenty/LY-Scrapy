@@ -47,7 +47,7 @@ class MyFilesPipeline(FilesPipeline):
         file_url = item['file_urls']
         actor = ' '.join(item['actor'])
         meta = {
-                  'filename': '-'.join([item['site'], item['movie_id'], item['name'], actor,]),
+                  'filename': '-'.join([item['site'], item['movie_id'], item['name'], actor,'.mp4']),
                 }
         yield scrapy.Request(url=file_url, meta=meta)
         #i = 1
@@ -69,10 +69,10 @@ class MyImagesPipeline(ImagesPipeline):
         image_url = item['image_urls']
         actor = ' '.join(item['actor'])
         meta = {
-                  'filename': '-'.join([item['site'], item['movie_id'], item['name'], actor,]),
+                  'filename': '-'.join([item['site'], item['movie_id'], item['name'], actor,'.jpg',]),
                 }
         yield scrapy.Request(url=image_url, meta=meta)
 
     
-    def image_path(self, request, response=None, info=None):
+    def file_path(self, request, response=None, info=None):
         return request.meta['filename'] 
