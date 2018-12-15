@@ -17,7 +17,7 @@ FILES_STORE = 'src'
 IMAGES_STORE = 'src'
 MEDIA_ALLOW_REDIRECTS = True
 FEED_EXPORT_ENCODING = 'utf-8'
-FEED_EXPORT_FIELDS = ['site', 'movie_id', 'upload_date', 'rating', 'name', 'actor', 'duration', 'series', 'movie_tag', 'tag', 'description',]
+FEED_EXPORT_FIELDS = ['site', 'movie_id', 'upload_date', 'duration', 'rating', 'name', 'actor', 'series', 'movie_tag', 'tag', 'description',]
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36'
@@ -70,6 +70,7 @@ CONCURRENT_REQUESTS_PER_IP = 16
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'carib_scrapy.pipelines.MyImagesPipeline': 1,
+    'carib_scrapy.pipelines.MyFilesPipeline': 2,
     #'scrapy.pipelines.images.MyImagesPipeline': 1,
     #'scrapy.pipelines.files.FilesPipeline': 2,
     'carib_scrapy.pipelines.RatingPipeline': 300,
