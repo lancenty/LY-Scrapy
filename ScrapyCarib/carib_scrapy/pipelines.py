@@ -4,6 +4,7 @@
 #
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
+import os
 import json
 import codecs
 import scrapy
@@ -42,12 +43,12 @@ class JsonWithEncodingPipeline(object):
 
 class MyFilesPipeline(FilesPipeline):
     
-
     def get_media_requests(self, item, info):
         file_url = item['file_urls']
         actor = ' '.join(item['actor'])
         meta = {
-                  'filename': '-'.join([item['site'], item['movie_id'], item['name'], actor,'.mp4']),
+                  'filename': '-'.join([item['site'], item['movie_id'], item['name'], actor]),
+                  'year': item['upload_date'][:4],
                 }
         yield scrapy.Request(url=file_url, meta=meta)
         #i = 1
@@ -57,22 +58,22 @@ class MyFilesPipeline(FilesPipeline):
         #    i += 1
         #return
 
-
     def file_path(self, request, response=None, info=None):
-        return request.meta['filename'] 
+        media_ext = os.path.splitext(request.url)[1]
+        return '%s/%s%s' % (request.meta['year'], request.meta['filename'], media_ext)
 
 
 class MyImagesPipeline(ImagesPipeline):
-
 
     def get_media_requests(self, item, info):
         image_url = item['image_urls']
         actor = ' '.join(item['actor'])
         meta = {
-                  'filename': '-'.join([item['site'], item['movie_id'], item['name'], actor,'.jpg',]),
+                  'filename': '-'.join([item['site'], item['movie_id'], item['name'], actor]),
+                  'year': item['upload_date'][:4],
                 }
         yield scrapy.Request(url=image_url, meta=meta)
 
-    
     def file_path(self, request, response=None, info=None):
-        return request.meta['filename'] 
+        media_ext = os.path.splitext(request.url)[1]
+        return '%s/%s%s' % (request.meta['year'], request.meta['filename'], media_ext)                                                                                                                                                            

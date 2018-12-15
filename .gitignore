@@ -6,6 +6,8 @@ scraped_data_utf8.json
 # C extensions
 *.so
 myenv
+movies.json
+movies.csv
 # Distribution / packaging
 .Python
 build/
