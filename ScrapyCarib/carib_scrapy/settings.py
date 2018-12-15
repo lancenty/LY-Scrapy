@@ -13,8 +13,8 @@ BOT_NAME = 'carib_scrapy'
 
 SPIDER_MODULES = ['carib_scrapy.spiders']
 NEWSPIDER_MODULE = 'carib_scrapy.spiders'
-FILES_STORE = 'src'
-IMAGES_STORE = 'src'
+FILES_STORE = 'samples'
+IMAGES_STORE = 'images'
 MEDIA_ALLOW_REDIRECTS = True
 FEED_EXPORT_ENCODING = 'utf-8'
 FEED_EXPORT_FIELDS = ['site', 'movie_id', 'upload_date', 'duration', 'rating', 'name', 'actor', 'series', 'movie_tag', 'tag', 'description',]
