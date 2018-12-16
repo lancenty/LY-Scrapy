@@ -3,8 +3,8 @@ import scrapy
 from scrapy.linkextractors import LinkExtractor
 from ..items import MovieItem
 
-class MoviesSpider(scrapy.Spider):
-    name = 'movies'
+class CaribSpider(scrapy.Spider):
+    name = 'carib'
     allowed_domains = ['www.caribbeancom.com']
     start_urls = ['https://www.caribbeancom.com/listpages/all1.htm']
 
