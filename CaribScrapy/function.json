@@ -15,5 +15,7 @@
       "name": "res"
     }
   ],
-  "disabled": false
+  "disabled": false,
+  "scriptFile": "main.py",
+  "entryPoint": "main"
 }
