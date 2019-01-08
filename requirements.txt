@@ -1,0 +1,7 @@
+pypiwin32
+scrapy
+pymongo
+xlwt
+sqlite3
+mysqlclient
+scrapy-splash
