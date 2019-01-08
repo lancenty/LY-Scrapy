@@ -36,10 +36,11 @@ class A1pondoSpider(scrapy.Spider):
         movie_id = response.url.split('/')[-2]
         sel = response.css('div.movie-info')
 
-        movie['site'] = "Carib"
+        movie['site'] = "1pondo"
         movie['movie_id'] = movie_id
-        movie['name'] = sel.css('div.heading h1::text').extract_first()
-        movie['description'] = sel.xpath('//p[@itemprop="description"]/text()').extract_first()
+        movie['name'] = sel.css('h1.h1--dense::text').extract_first()
+        movie['description'] = sel.css('div.movie-detail p::text').extract_first()
+
         movie['actor'] = sel.xpath('//ul/li/span/a[@itemprop="actor"]/span/text()').extract()
         movie['upload_date'] = sel.xpath('//ul/li//span[@itemprop="uploadDate"]/text()').re_first(r'\d{4}\/\d{2}\/\d{2}')
         movie['duration'] = sel.xpath('//ul/li//span[@itemprop="duration"]/text()').re_first(r'\d{2}\:\d{2}\:\d{2}')
@@ -47,7 +48,7 @@ class A1pondoSpider(scrapy.Spider):
         movie['tag'] = sel.xpath('//ul/li[span[@class="spec-title"]/text()="タグ"]/span[@class="spec-content"]/a/text()').extract()
         movie['movie_tag'] = sel.xpath('//div[@class="movie-tag"]/div/text()').extract()
         movie['rating'] = sel.css('span.rating::text').extract_first()
-        movie['image_urls'] = "https://www.caribbeancom.com/moviepages/" + movie_id + "/images/l_l.jpg"
-        movie['file_urls'] = "https://smovie.caribbeancom.com/sample/movies/" + movie_id + "/480p.mp4"
+        
+        movie['image_urls'] = "https://www.1pondo.tv/assets/sample/" + movie_id + "/str.jpg"
 
         yield movie
