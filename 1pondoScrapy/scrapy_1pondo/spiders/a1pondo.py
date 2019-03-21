@@ -10,7 +10,7 @@ script = """
             splash:wait(10)
             splash:runjs("document.getElementsByClassName('see-more')[0].click()")
             splash:wait(10)
-            return splash:png()
+            return splash:html()
          end
          """
 
