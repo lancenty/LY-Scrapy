@@ -14,3 +14,4 @@ print(response.text)
 #https://www.vixen.com/videos
 #https://www.tushy.com/videos
 
+#http://www.heyzo.com/contents/3000/2007/images/player_thumbnail.jpg
