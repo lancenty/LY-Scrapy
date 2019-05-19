@@ -11,3 +11,6 @@ print(response.text)
 #http://104.215.145.171:8050/render.html?url=https://www.1pondo.tv/list/?o=newest
 
 #https://www.blacked.com/videos
+#https://www.vixen.com/videos
+#https://www.tushy.com/videos
+
